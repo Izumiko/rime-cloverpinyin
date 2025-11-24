@@ -20,7 +20,7 @@ jobs:
           echo "TAG_NAME=$(date +%Y%m%d)" >> $GITHUB_ENV
         shell: bash
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
           submodules: true
@@ -34,7 +34,7 @@ jobs:
         run: |
           git submodule update --recursive --remote --rebase && bash ./build.sh && bash ./pack.sh `date +%y%m`
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Packages for release
           path: data/clover.schema-*.zip
